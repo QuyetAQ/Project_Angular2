@@ -1,0 +1,45 @@
+<div [@fadeInAnimation]>
+    <div class="container py-5">
+        <div class="row" style="margin-top:5%">
+            <div class="col-md-12 mx-auto">
+                <div class="row">
+                    <div class="col-md-5 mx-auto">
+                        <div class="card rounded-0">
+                            <div class="card-header" style="background-color:skyblue">
+                                <h3 class="font-weight-bold " style="color:blue;text-align:center">Account Detail Information</h3>
+                            </div>
+                            <div class="card-body">
+                                <form class="form" role="form" id="formLogin" #f="ngForm" (ngSubmit)="CheckLogin(f.value)">
+                                    <!-- Account Info -->
+                                    <div *ngIf = 'Account'>
+                                        <table class="table">
+                                            <thead class="thead-dark">
+                                                <th scope="col">ID</th>
+                                                <th scope="col">User Name</th>
+                                                <th scope="col">Phone Number</th>
+                                                <th scope="col">Address</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="table-warning">
+                                                    <td>{{Account?.id}}</td>
+                                                    <td>{{Account?.username}}</td>
+                                                    <td>{{Account?.phone}}</td>
+                                                    <td>{{Account?.address}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- Delete Account -->
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-primary float-left" (click)='DeleteAccount(Account.id)'>Delete Account</button>
+                                            <button type="button" class="btn btn-danger float-right" (click)='GotoHome()'>Back to Home</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

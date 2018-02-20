@@ -1,0 +1,17 @@
+h3 {
+  color: red;
+  text-align: left;
+}
+h1 {
+  color : blue;
+  text-align: center;
+}
+
+footer{
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+/* .container-fluid{
+  min-height: 770px;
+} */

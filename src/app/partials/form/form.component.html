@@ -1,0 +1,49 @@
+<!-- <div style="text-align:left;color:yellow;background-color:blue">
+ <h4>Form.component.html</h4>
+</div> -->
+<br>
+<form #userForm='ngForm' (ngSubmit)='onSubmit(userForm.value)'>
+        <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" minlength='6' maxlength='12' required name='name' #name='ngModel' ngModel>
+                <div *ngIf='name.errors && (name.dirty|| name.touched)' class="alert alert-danger">
+                        <div [hidden]='!name.errors.required'>
+                                Name is required.
+                        </div>
+                        <div [hidden]='!name.errors.minlength'>
+                                Name must be at least 6 character.
+                        </div>
+                        <div [hidden]='!name.errors.maxlength'>
+                                Name can't more than 10 character.
+                        </div>
+                </div>
+        </div>
+        <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email" ngModel>
+        </div>
+        <div class="form-group">
+                <label>Street</label>
+                <input type="text" class="form-control" name='street' ngModel>
+        </div>
+        <div class="form-group">
+                <label>City</label>
+                <select class="form-control" name="cityName" ngModel>
+                        <option *ngFor='let city of cities' [value]='city.Id'>{{city.Name}}</option>
+                </select>
+        </div>
+        <div class="form-group">
+                <label>Postal Code</label>
+                <input type="text" class="form-control" pattern="^[1-9][0-9]{4}$" name="postalcode" #postalcode='ngModel' ngModel>
+                <div *ngIf='postalcode.errors && (postalcode.dirty|| postalcode.touched)' class="alert alert-danger">
+                        <div [hidden]='!postalcode.errors.pattern'>
+                                Postal Code must be hava 5 digits.
+                        </div>
+                </div>
+        </div>
+        <button type="submit" [disabled]="!userForm.valid" class="btn btn-primary">Submit</button>
+</form>
+<br>
+<div>
+        <button type="button" class="btn btn-success" (click)='BacktoHome()'>Back to Home</button>
+</div>

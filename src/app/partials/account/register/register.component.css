@@ -1,0 +1,11 @@
+body {
+    margin: 0em;
+  }
+
+.ng-valid[required]:not(form), .ng-valid:not(form)  {
+  border-left: 5px solid dodgerblue; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}

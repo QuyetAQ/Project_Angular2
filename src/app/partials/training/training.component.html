@@ -1,0 +1,50 @@
+<!-- <div style="text-align:left;color:white;background-color:blue;text-align: left;font-size: 15pt">
+    Training.component.html 
+</div> -->
+<br>
+<div style="color:blue">
+    <!-- Two way banding -->
+    First Name : <input type="text" [(ngModel)] = "fname"/><br/>
+    Last Name : <input type="text" [(ngModel)] = "lname"/><br/>
+    <!-- Event binding -->
+    <button (click)='onClickFullName(fname,lname)' style="color:black">Full Name</button>
+    Full Name : {{fname}} {{lname}} 
+</div>
+<!-- Structuaral Directives -->
+<!-- *ngIf -->
+<div style="color:darkred">
+    <h3 *ngIf = 'show_line'> *This is *ngIf : Structuaral Directives</h3>
+</div>
+<!-- *ngSwitch -->
+<div [ngSwitch] = 'color'>
+    <p style="color:green" *ngSwitchCase = "'green'">*ngSwitch This line color green</p>
+    <p style="color:red" *ngSwitchCase = "'red'">*ngSwitch This line color red</p>
+    <p style="color:blue" *ngSwitchCase = "'blue'">*ngSwitch This line color blue</p>
+    <p style="color:black" *ngSwitchDefault>*ngSwitch This line color invalid</p>
+</div>
+<!-- *ngFor -->
+<ul style="color:blue">
+    <li *ngFor = 'let color of colors'>{{color}}</li>
+</ul>
+
+<!-- Attribute Directives -->
+<!-- *ngClass -->
+<p [ngClass] = "{class1:ngclass1,class2:ngclass2}">This is *ngStyle apply</p>
+<button (click) = "toggle()">Toggle</button>
+<!-- *ngStyle -->
+<p [ngStyle] = "{'font-style':fontstyle,'font-size':size}" >Test *ngStyle</p>
+
+<!-- Pipes : slice -->
+<ul>
+    <li *ngFor = 'let i of country | slice:0:3' style="color:crimson">{{i}}</li>
+</ul>
+<!-- Pipes : Custom  Pipes -->
+<!-- <p>Super power boots : 2^10 = {{2|exponentialStrength:10}}</p> -->
+<h4 style="color:blue">Power Boots Calculator : 
+    <div>Power <input [(ngModel)] = 'power'> </div>
+    <div>Factor <input [(ngModel)] = 'factor'> </div>
+    {{power}}^{{factor}} = {{power|exponentialStrength:factor}}
+</h4>
+<div>
+    <button type="button" class="btn btn-primary" (click)='BacktoHome()'>Back to Home</button>
+</div>

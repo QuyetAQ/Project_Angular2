@@ -1,0 +1,50 @@
+<div [@fadeInAnimation]>
+<div class="container py-5">
+    <div class="row" style="margin-top:5%">
+        <div class="col-md-12 mx-auto">
+            <div class="row">
+                <div class="col-md-5 mx-auto">
+                    <div class="card rounded-0">
+                        <div class="card-header" style="background-color:skyblue">
+                            <h3 class="font-weight-bold " style="color:blue;text-align:center">Product Detail Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" id="formLogin">
+                                <!-- Product Info -->
+                                <div *ngIf = 'Product'>
+                                    <table class="table">
+                                        <thead class="thead-dark">
+                                            <th scope="col">ID</th>
+                                            <th scope="col">CreateDate</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">Status</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="table-warning">
+                                                <td>{{Product?.id}}</td>
+                                                <td>{{Product?.createdAt | date}}</td>
+                                                <td>{{Product?.name}}</td>
+                                                <td>{{Product?.age}}</td>
+                                                <td>{{Product?.status}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!-- Direction -->
+                                    <div class="form-group">
+                                        <a class="btn btn-primary" [routerLink] = "['overview']">Go to Overview</a>
+                                        <a class="btn btn-success" [routerLink] = "['specs']">Go to Specs</a>
+                                        <button type="button" class="btn btn-danger" (click)='GotoProduct()'>Back to Product</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<router-outlet></router-outlet>
+</div>

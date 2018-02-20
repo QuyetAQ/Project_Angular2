@@ -1,0 +1,40 @@
+<div [@fadeInAnimation]>
+    <h3 style="text-align:center;color:black" class="font-weight-bold">Home Page</h3>
+    <div class="container">
+        <div class="card-deck">
+            <!-- Card Training -->
+            <div class="card" style="width: 18rem;">
+                <div class="text-center">
+                    <img class="card-img-top" class="center-block" src="/assets/training_card.png" alt="Card image cap" style="width:10rem;height:10rem" [@imgScaleAnimation]='state' (click)="imgScaleState()">
+                </div>
+                <div class="card-body" style="color:blue">
+                    <h5 class="card-title">Training</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <button type="button" class="btn btn-primary" (click)='GotoTraining()'>Training</button>
+                </div>
+            </div>
+            <!-- Card Form -->
+            <div class="card" style="width: 18rem;">
+                <div class="text-center">
+                    <img class="card-img-top" src="/assets/form_card.png" alt="Card image cap" style="width:10rem;height:10rem" [@imgScaleAnimation]='state' (click)="imgScaleState()">
+                </div>
+                <div class="card-body" style="color:green">
+                    <h5 class="card-title">Form</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <button type="button" class="btn btn-success" (click)='GotoForm()'>Form</button>
+                </div>
+            </div>
+            <!-- Card Service  -->
+            <div class="card" style="width: 18rem;">
+                <div class="text-center">
+                    <img class="card-img-top" src="/assets/service_card.png" alt="Card image cap" style="width:10rem;height:10rem" [@imgScaleAnimation]='state' (click)="imgScaleState()">
+                </div>
+                <div class="card-body" style="color:red">
+                    <h5 class="card-title">Service</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <button type="button" class="btn btn-danger" (click)='GotoProduct()'>Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
