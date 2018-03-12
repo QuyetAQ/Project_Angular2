@@ -1,0 +1,22 @@
+** Install Bootstrap : npm install bootstrap@4.0.0-beta.3
+**** Flow Process
+User request => index.html => main.ts
+=> app.module.ts 
+
+*** Data Binding
+Angular 1 : Co che digit cycle. Neu co thay doi thi dirty checking quet xem co su thay
+doi thi phan anh vao model or view
+Angular 2 : + Model thay doi thi qua co che Property Binding phan anh vao view
+            + View thay doi thi phat sinh su kien Event Binding va update lai model
+
+*** Structuaral Directives
+    *ngIf
+    *ngFor
+    *ngSwitch
+*** Attribute Directives
+    *ngStyle
+    *ngClass
+** Template Driven Form
+** Http Services
+    http://www.mockapi.io
+** 

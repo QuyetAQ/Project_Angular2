@@ -1,0 +1,165 @@
+<div [@fadeInAnimation]>
+    <!-- Add -->
+    <br>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AddModal">
+        Add New
+    </button>
+    <br>
+    <br>
+    <table class="table">
+        <thead class="thead-light">
+            <th scope="col">UserId</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Password</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Logo</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col"></th>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let uw of UserWallet" class="table-light">
+                <td>{{uw.UserId}}</td>
+                <td>{{uw.UserName}}</td>
+                <td>{{uw.Password}}</td>
+                <td>{{uw.Rank}}</td>
+                <td>{{uw.Logo}}</td>
+                <td>{{uw.FirstName}}</td>
+                <td>{{uw.LastName}}</td>
+                <td>
+                    <button (click)='Edit(uw.UserId)' class="btn btn-success" data-toggle="modal" data-target="#EditModal">Edit 1</button>
+                    <a [routerLink] = "['/product2-edit',uw.UserId]" class="btn btn-success">Edit 2</a>
+                    <button (click)='Delete(uw.UserId)' class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Add -->
+    <div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="AddModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header" style="background-color:darkblue">
+                <h5 class="modal-title" id="AddModalLabel" style="color:yellow">
+                    Add New UserWallet
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form class='form' #f = 'ngForm' (ngSubmit) = 'AddSaveForm()' >
+            <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">UserId</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" name = 'userid' [(ngModel)] = 'Uw_Add.UserId'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">UserName</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'username' [(ngModel)] = 'Uw_Add.UserName'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'password' [(ngModel)] = 'Uw_Add.Password'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Rank</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'rank' [(ngModel)] = 'Uw_Add.Rank'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Logo</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'logo' [(ngModel)] = 'Uw_Add.Logo'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">FirstName</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'firstname' [(ngModel)] = 'Uw_Add.FirstName'>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">LastName</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name = 'lastname' [(ngModel)] = 'Uw_Add.LastName'>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary float-left" >Add</button>
+                <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancel</button>
+            </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <!-- Edit -->
+    <div class="modal fade" id="EditModal" tabindex="-1" role="dialog" aria-labelledby="EditModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header" style="background-color:darkblue">
+                    <h5 class="modal-title" id="EditModalLabel" style="color:yellow">
+                        Edit UserWallet : {{EditUserId}}
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form class='form' #f = 'ngForm' (ngSubmit) = 'EditSaveForm()' >
+                <div class="modal-body">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">UserName</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'username' [(ngModel)] = 'Uw_Edit.UserName'>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'password' [(ngModel)] = 'Uw_Edit.Password'>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Rank</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'rank' [(ngModel)] = 'Uw_Edit.Rank'>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Logo</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'logo' [(ngModel)] = 'Uw_Edit.Logo'>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">FirstName</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'firstname' [(ngModel)] = 'Uw_Edit.FirstName'>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">LastName</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name = 'lastname' [(ngModel)] = 'Uw_Edit.LastName'>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary float-left" >Add</button>
+                    <button type="button" class="btn btn-danger float-right" data-dismiss="modal">Cancel</button>
+                </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+</div>
+    
+    
